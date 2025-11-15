@@ -1,5 +1,6 @@
 import { trpc } from "@/lib/trpc";
-import { UNAUTHED_ERR_MSG } from '@shared/const';
+// DIESE ZEILE WURDE KORRIGIERT:
+import { UNAUTHED_ERR_MSG } from '@shared/const/index';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink, TRPCClientError } from "@trpc/client";
 import { createRoot } from "react-dom/client";
@@ -8,7 +9,7 @@ import App from "./App";
 import { getLoginUrl } from "./lib/constants";
 import "./index.css";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient( );
 
 const redirectToLoginIfUnauthorized = (error: unknown) => {
   if (!(error instanceof TRPCClientError)) return;
@@ -42,7 +43,7 @@ const trpcClient = trpc.createClient({
     httpBatchLink({
       url: "/api/trpc",
       transformer: superjson,
-      fetch(input, init) {
+      fetch(input, init ) {
         return globalThis.fetch(input, {
           ...(init ?? {}),
           credentials: "include",
