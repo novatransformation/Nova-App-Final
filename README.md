@@ -1,4 +1,4 @@
-# Nova Transformations
+jooo# Nova Transformations
 
 **Eine transformative App für persönliche Heilung und Selbsterkenntnis.**
 
